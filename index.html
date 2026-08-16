@@ -2,12 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NutriTrack — Global Nutrition</title>
+<title>NutriTrack V5 — Global Nutrition • Legend</title>
 <style>
 :root{--g:#35a96b;--gd:#207d4b;--p:#eaf8ef;--bg:#f6faf7;--ink:#17221b;--muted:#6f7d75;--line:#deebe3;--red:#d85d63;--gold:#e4a83b}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,-apple-system,Segoe UI,sans-serif}.app{min-height:100vh}.side{position:fixed;inset:0 auto 0 0;width:235px;background:#fff;border-right:1px solid var(--line);padding:22px 14px;z-index:5}.logo{font-size:25px;font-weight:950;margin:5px 12px 28px}.logo span{color:var(--g)}nav button{width:100%;border:0;background:transparent;padding:13px;border-radius:12px;text-align:left;font-weight:800;color:#617068;margin:3px 0;cursor:pointer}nav button.active,nav button:hover{background:var(--p);color:var(--gd)}.main{margin-left:235px;padding:26px;max-width:1500px}.page{display:none}.page.active{display:block}.top,.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:30px;margin:4px 0}.sub,.label{color:var(--muted)}.label{font-size:12px;font-weight:850;letter-spacing:.07em}.grid{display:grid;gap:15px}.stats{grid-template-columns:repeat(4,1fr)}.two{grid-template-columns:1.15fr .85fr;margin-top:15px}.three{grid-template-columns:repeat(3,1fr)}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 6px 25px #173d240b}.big{font-size:27px;font-weight:950;margin:6px 0}.progress{height:8px;background:#edf2ee;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:var(--g);border-radius:20px}.btn{border:0;border-radius:11px;padding:11px 15px;background:var(--g);color:#fff;font-weight:850;cursor:pointer}.btn.alt{background:var(--p);color:var(--gd)}.btn.red{background:#fff0f1;color:var(--red)}input,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:#fff;margin:5px 0 10px;font:inherit}.notice{background:var(--p);padding:12px;border-radius:12px;color:var(--gd);margin:10px 0}.food{border:1px solid var(--line);padding:13px;border-radius:13px;margin:8px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}.food small{display:block;color:var(--muted);margin-top:4px}.tag{display:inline-block;padding:5px 8px;border-radius:20px;background:#f0f4f1;color:#5c6c63;font-size:12px;margin:3px}.meal{border:1px solid var(--line);padding:13px;border-radius:13px;margin:8px 0;display:flex;justify-content:space-between}.ring{width:140px;height:140px;border-radius:50%;background:conic-gradient(var(--g) var(--pct),#e8efea 0);display:grid;place-items:center;margin:12px auto}.ring:after{content:"";position:absolute;width:104px;height:104px;border-radius:50%;background:#fff}.ring b{z-index:1;font-size:23px}.water{display:flex;gap:6px;flex-wrap:wrap}.drop{border:1px solid #cfe8d7;background:#fff;border-radius:50%;width:35px;height:35px;cursor:pointer}.drop.on{background:var(--g);color:#fff}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.quick button{padding:13px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer}.searchbar{display:flex;gap:8px}.searchbar input{margin:0}.resultmeta{font-size:12px;color:var(--muted)}.photo{width:100%;max-height:360px;object-fit:cover;border-radius:14px;background:#111}.camera{background:#101411;border-radius:15px;overflow:hidden;min-height:260px;display:grid;place-items:center;position:relative}.camera video{width:100%;max-height:420px;object-fit:cover}.camera .hint{position:absolute;bottom:10px;left:10px;right:10px;text-align:center;color:#fff;background:#0009;padding:8px;border-radius:9px}.scanbuttons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.scanresult{background:var(--p);padding:14px;border-radius:13px;margin-top:12px}.chart{height:180px;display:flex;align-items:end;gap:10px}.barwrap{flex:1;text-align:center}.bar{height:var(--h);background:var(--g);border-radius:7px 7px 2px 2px}.modalbg{display:none;position:fixed;inset:0;background:#10201699;align-items:center;justify-content:center;padding:15px;z-index:20}.modal{background:#fff;padding:20px;border-radius:20px;width:min(650px,100%);max-height:92vh;overflow:auto}.toast{position:fixed;right:15px;bottom:15px;background:var(--ink);color:#fff;padding:12px 15px;border-radius:10px;display:none;z-index:30}.empty{text-align:center;padding:25px;color:var(--muted)}.herofood{display:flex;gap:12px;align-items:center}.thumb{width:60px;height:60px;border-radius:12px;object-fit:cover;background:#edf3ee}.country{font-size:12px;color:var(--gd);font-weight:750}.footer{color:#849189;font-size:11px;margin-top:25px;text-align:center}
 @media(max-width:850px){.side{width:64px;padding:15px 7px}.logo{font-size:0;text-align:center}.logo span{font-size:21px}nav button{font-size:0;text-align:center}nav button:first-letter{font-size:19px}.main{margin-left:64px}.stats,.two,.three{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.main{padding:15px}.stats,.two,.three,.quick{grid-template-columns:1fr 1fr}.title{font-size:24px}.searchbar{display:block}.searchbar button{width:100%;margin-top:6px}.scanbuttons{grid-template-columns:1fr}}
+
+/* V5 motion system */
+.page.active{animation:pageIn .32s ease both}
+.card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 30px #173d2412}
+.btn,.quick button,.drop,nav button{transition:transform .16s ease,background .16s ease,box-shadow .16s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 15px #35a96b35}
+.btn:active,.quick button:active,.drop:active{transform:scale(.96)}
+.food{animation:itemIn .25s ease both}
+.progress i{transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.ring{transition:background .7s ease;animation:ringIn .7s ease both}
+.drop.on{animation:dropPop .25s ease both}
+.challenge-card{position:relative;overflow:hidden}
+.challenge-card.complete{border-color:#8bd1a6;background:linear-gradient(135deg,#fff,#effaf2)}
+.challenge-card.complete:after{content:"✓";position:absolute;right:15px;top:12px;font-size:24px;color:var(--g);font-weight:950}
+.badge{font-size:28px;animation:floaty 2.2s ease-in-out infinite}
+.points{font-weight:950;color:var(--gd)}
+.toast.show{animation:toastIn .25s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes itemIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes ringIn{from{transform:scale(.9);opacity:.5}to{transform:scale(1);opacity:1}}
+@keyframes dropPop{0%{transform:scale(.75)}70%{transform:scale(1.12)}100%{transform:scale(1)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+
+<style>
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@keyframes pop{0%{transform:scale(.94);opacity:0}70%{transform:scale(1.03)}100%{transform:scale(1);opacity:1}}@keyframes pulse{0%,100%{box-shadow:0 0 0 0 #35a96b33}50%{box-shadow:0 0 0 9px #35a96b00}}@keyframes waterDrop{0%{transform:scale(.7);opacity:.3}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes fill{from{width:0}}
+.page.active{animation:fadeUp .35s ease both}.card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}.card:hover{transform:translateY(-2px);box-shadow:0 12px 32px #173d2414}.btn{transition:transform .15s ease,box-shadow .15s ease}.btn:hover{transform:translateY(-1px);box-shadow:0 6px 15px #35a96b33}.btn:active{transform:scale(.96)}.progress i{animation:fill .8s ease}.ring{animation:pop .5s ease}.drop{transition:all .2s ease}.drop.on{animation:waterDrop .3s ease}.food,.meal{animation:fadeUp .3s ease both}.quick button{transition:transform .15s ease,background .15s ease}.quick button:hover{transform:translateY(-3px);background:var(--p)}.logo span{display:inline-block;animation:pulse 2.5s infinite}.modalbg{backdrop-filter:blur(5px)}.modal{animation:pop .25s ease}.toast{animation:fadeUp .25s ease}.chart .bar{transform-origin:bottom;animation:fill .65s ease both}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -17,6 +48,7 @@
 <button onclick="go('food',this)">🥗 Food</button>
 <button onclick="go('planner',this)">🍽️ Planner</button>
 <button onclick="go('progress',this)">📈 Progress</button>
+<button onclick="go('challenges',this)">🏆 Challenges</button>
 <button onclick="go('profile',this)">👤 Profile</button>
 </nav></aside>
 <main class="main">
@@ -47,12 +79,35 @@
 <div class="card"><h3>📸 Scan / Photo</h3><p class="sub">Use your camera to capture the meal, then confirm the closest food and portion.</p><button class="btn" style="width:100%" onclick="openScanner()">Open camera</button><label class="btn alt" style="display:block;text-align:center;margin-top:8px">🖼️ Choose food photo<input type="file" accept="image/*" capture="environment" style="display:none" onchange="loadStandalonePhoto(event)"></label><button class="btn alt" style="width:100%;margin-top:8px" onclick="barcodeScan()">▣ Scan barcode</button>
 <p class="resultmeta">Photo estimates are estimates—you confirm before logging.</p></div></div>
 <div class="card" style="margin-top:15px"><div class="row"><h3>Today's log</h3><span class="label" id="count"></span></div><div id="logs"></div></div>
-<div class="footer">NutriTrack • Global nutrition tracking • Online product data powered by Open Food Facts</div>
+<div class="footer">NutriTrack V5 • Global nutrition tracking • Challenges • Camera • Barcode • Online product data powered by Open Food Facts</div>
 </section>
 
 <section id="planner" class="page"><div class="top"><div><span class="label">MEAL PLANNER</span><h1 class="title">Plan ahead</h1><p class="sub">Save meals from any cuisine.</p></div><button class="btn" onclick="mealModal.style.display='flex'">+ Save meal</button></div><div class="grid three"><div class="card"><h3>🌅 Breakfast</h3><p>Oats + banana + milk</p><b>445 kcal</b></div><div class="card"><h3>☀️ Lunch</h3><p>Chicken adobo + rice</p><b>~560 kcal</b></div><div class="card"><h3>🌙 Dinner</h3><p>Salmon + rice + vegetables</p><b>610 kcal</b></div></div><div class="card" style="margin-top:15px"><h3>Saved meals</h3><div id="saved"></div></div></section>
 
 <section id="progress" class="page"><div class="top"><div><span class="label">YOUR JOURNEY</span><h1 class="title">Progress</h1><p class="sub">Based on your saved logs.</p></div></div><div class="grid stats"><div class="card"><span class="label">CALORIES TODAY</span><div class="big" id="pc">0</div></div><div class="card"><span class="label">PROTEIN TODAY</span><div class="big" id="pp">0g</div></div><div class="card"><span class="label">WATER TODAY</span><div class="big" id="pw">0 L</div></div><div class="card"><span class="label">WEIGHT</span><div class="big" id="pweight">68.4 kg</div></div></div><div class="card" style="margin-top:15px"><h3>7-day calorie history</h3><div class="chart" id="chart"></div></div></section>
+
+
+<section id="challenges" class="page">
+<div class="top"><div><span class="label">MOTIVATION CENTER</span><h1 class="title">🏆 Challenges</h1>
+<p class="sub">Build healthy habits one challenge at a time. Missing a day doesn't mean you failed.</p></div>
+<div class="card" style="padding:12px 16px"><span class="label">NUTRIPOINTS</span><div class="big" style="font-size:22px" id="points">0</div></div></div>
+
+<div class="grid stats">
+<div class="card"><span class="label">ACTIVE</span><div class="big" id="activeChallenges">0</div><span class="sub">challenges</span></div>
+<div class="card"><span class="label">COMPLETED</span><div class="big" id="completedChallenges">0</div><span class="sub">badges earned</span></div>
+<div class="card"><span class="label">CURRENT STREAK</span><div class="big">🔥 <span id="challengeStreak">0</span></div><span class="sub">days</span></div>
+<div class="card"><span class="label">LEVEL</span><div class="big" id="level">Beginner</div><span class="sub" id="levelSub">0 / 100 points</span></div>
+</div>
+
+<div class="card" style="margin-top:15px">
+<div class="row"><h3>🔥 Recommended for you</h3><span class="label">START ANYTIME</span></div>
+<div id="challengeList" class="grid three"></div>
+</div>
+
+<div class="card" style="margin-top:15px">
+<h3>🎖️ Your badges</h3><div id="badges"></div>
+</div>
+</section>
 
 <section id="profile" class="page"><div class="top"><div><span class="label">GOALS</span><h1 class="title">Profile</h1><p class="sub">Set your targets once.</p></div></div><div class="card"><label>Name<input id="name"></label><label>Age<input id="age" type="number"></label><label>Height (cm)<input id="height" type="number"></label><label>Weight (kg)<input id="w" type="number"></label><label>Daily calorie goal<input id="g" type="number"></label><label>Protein goal (g)<input id="pg" type="number"></label><label>Weight goal (kg)<input id="wg" type="number"></label><button class="btn" onclick="saveProfile()">Save goals</button></div></section>
 </main></div>
@@ -94,6 +149,7 @@ $("logs").innerHTML=s.logs.length?s.logs.map((x,i)=>`<div class=food><div><b>${x
 $("pc").textContent=Math.round(t.cal)+" kcal";$("pp").textContent=Math.round(t.pro)+"g";$("pw").textContent=s.water.toFixed(1)+" L";$("pweight").textContent=p.w+" kg";
 $("drops").innerHTML=Array.from({length:8},(_,i)=>`<button class="drop ${i<Math.round(s.water*4)?"on":""}" onclick="waterSet(${(i+1)/4})">💧</button>`).join("");
 $("saved").innerHTML=s.meals.length?s.meals.map((m,i)=>`<div class=food><b>🍽️ ${m.n}</b><span>${m.c?m.c+" kcal":""} <button class="btn red" onclick="s.meals.splice(${i},1);save();render()">×</button></span></div>`).join(""):"<div class=empty>No saved meals.</div>";
+if($("challengeList"))renderChallenges();
 $("chart").innerHTML=s.hist.map((v,i)=>`<div class=barwrap><div class=bar style="--h:${Math.max(8,Math.min(100,v/p.g*100))}%"></div><small>${["M","T","W","T","F","S","S"][i]}</small></div>`).join("");
 }
 function quick(n){let f=foods.find(x=>x[0]==n);openFoodWith(f)}
@@ -137,7 +193,68 @@ function waterSet(v){s.water=v;save();render()}
 function saveMeal(){let n=$("mn").value.trim();if(!n)return;s.meals.push({n,c:+$("mc").value||0});save();mealModal.style.display="none";$("mn").value="";$("mc").value="";render();toast("Meal saved!")}
 function del(i){s.logs.splice(i,1);save();render()}
 function saveProfile(){s.p={name:$("name").value,age:+$("age").value,height:+$("height").value,w:+$("w").value,g:+$("g").value,pg:+$("pg").value,wg:+$("wg").value};save();render();toast("Goals saved!")}
-function toast(x){$("toast").textContent=x;$("toast").style.display="block";setTimeout(()=>$("toast").style.display="none",2300)}
+function toast(x){$("toast").textContent=x;$("toast").style.display="block";$("toast").classList.remove("show");void $("toast").offsetWidth;$("toast").classList.add("show");setTimeout(()=>$("toast").style.display="none",2300)}
+
+const challengeCatalog=[
+{id:"water7",icon:"💧",name:"7-Day Hydration Streak",desc:"Reach your water goal every day for 7 days.",target:7,unit:"days",points:100},
+{id:"protein7",icon:"💪",name:"Protein Power",desc:"Hit your protein target for 7 days.",target:7,unit:"days",points:120},
+{id:"balanced7",icon:"🥗",name:"Balanced Week",desc:"Stay within your calorie target for 7 days.",target:7,unit:"days",points:150},
+{id:"fruitveg5",icon:"🍎",name:"5-A-Day",desc:"Log 5 servings of fruits or vegetables.",target:5,unit:"servings",points:80},
+{id:"mindful30",icon:"🍰",name:"Mindful Treats",desc:"Log your favorite treats instead of skipping the record.",target:5,unit:"treats",points:75},
+{id:"consistency30",icon:"🌱",name:"30-Day Consistency",desc:"Keep a daily nutrition-tracking streak.",target:30,unit:"days",points:300}
+];
+s.challenges=s.challenges||{};
+s.points=s.points||0;
+s.badges=s.badges||[];
+
+function challengeProgress(c){
+  let v=s.challenges[c.id]?.progress||0;
+  if(c.id==="water7") v=Math.min(c.target,Math.floor((s.water*4)/4));
+  if(c.id==="protein7") v=Math.min(c.target, s.logs.length?1:0);
+  if(c.id==="balanced7") v=Math.min(c.target, total().cal<=s.p.g&&s.logs.length?1:0);
+  if(c.id==="fruitveg5") v=Math.min(c.target,s.logs.filter(x=>/banana|apple|mango|avocado|broccoli|potato|vegetable|fruit/i.test(x.name)).length);
+  if(c.id==="mindful30") v=Math.min(c.target,s.logs.filter(x=>/cake|cheesecake|ice cream|gelato|donut|cookie|brownie|cupcake|flan|halo-halo|bingsu|mochi|chocolate/i.test(x.name)).length);
+  if(c.id==="consistency30") v=Math.min(c.target,s.logs.length?1:0);
+  s.challenges[c.id]={progress:v,complete:v>=c.target};
+  return v;
+}
+function renderChallenges(){
+  let done=0,active=0;
+  $("challengeList").innerHTML=challengeCatalog.map(c=>{
+    let v=challengeProgress(c), pct=Math.round(v/c.target*100), complete=v>=c.target;
+    if(complete)done++; else active++;
+    return `<div class="card challenge-card ${complete?"complete":""}">
+      <div class="row"><div class="badge">${c.icon}</div><span class="points">+${c.points}</span></div>
+      <h3>${c.name}</h3><p class="sub">${c.desc}</p>
+      <div class="progress"><i style="width:${pct}%"></i></div>
+      <div class="row" style="margin-top:8px"><small>${v} / ${c.target} ${c.unit}</small><b>${pct}%</b></div>
+      ${complete?'<div class="notice">🎉 Challenge complete! Badge earned.</div>':`<button class="btn alt" style="width:100%;margin-top:10px" onclick="startChallenge('${c.id}')">Start challenge</button>`}
+    </div>`;
+  }).join("");
+  let oldDone=s.challenges._done||0;
+  if(done>oldDone){
+    for(let i=oldDone;i<done;i++)s.points+=challengeCatalog[i]?.points||50;
+    s.challenges._done=done;
+    toast("🏆 Challenge completed! You earned NutriPoints.");
+  }
+  $("points").textContent=s.points;
+  $("activeChallenges").textContent=active;
+  $("completedChallenges").textContent=done;
+  let lv=s.points>=1500?"Legend":s.points>=1000?"Champion":s.points>=700?"Elite":s.points>=450?"Dedicated":s.points>=250?"Consistent":s.points>=100?"Starter":"Beginner";
+  const thresholds={Beginner:0,Starter:100,Consistent:250,Dedicated:450,Elite:700,Champion:1000,Legend:1500};
+  const next=lv==="Legend"?1500:thresholds[{Beginner:"Starter",Starter:"Consistent",Consistent:"Dedicated",Dedicated:"Elite",Elite:"Champion",Champion:"Legend"}[lv]];
+  const current=thresholds[lv];
+  $("level").textContent=lv;$("levelSub").textContent=lv==="Legend"?"MAX LEVEL • 1500+ points":`${Math.max(0,s.points-current)} / ${next-current} points`;
+  $("challengeStreak").textContent=s.logs.length?Math.min(7,s.logs.length):0;
+  $("badges").innerHTML=done?challengeCatalog.filter(c=>s.challenges[c.id]?.complete).map(c=>`<span class="tag" style="padding:9px 11px">${c.icon} ${c.name}</span>`).join(" "):"<span class=sub>No badges yet. Start your first challenge!</span>";
+  save();
+}
+function startChallenge(id){
+  s.challenges[id]=s.challenges[id]||{progress:0,complete:false};
+  toast("🔥 Challenge started! You've got this.");
+  save();renderChallenges();
+}
+
 $("name").value=s.p.name;$("age").value=s.p.age;$("height").value=s.p.height;$("w").value=s.p.w;$("g").value=s.p.g;$("pg").value=s.p.pg;$("wg").value=s.p.wg;render();
 </script>
 </body></html>
