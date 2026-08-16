@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NutriTrack V5 — Global Nutrition • Legend</title>
+<title>NutriTrack V6.1 — Smart Nutrition • Legend</title>
 <style>
 :root{--g:#35a96b;--gd:#207d4b;--p:#eaf8ef;--bg:#f6faf7;--ink:#17221b;--muted:#6f7d75;--line:#deebe3;--red:#d85d63;--gold:#e4a83b}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,-apple-system,Segoe UI,sans-serif}.app{min-height:100vh}.side{position:fixed;inset:0 auto 0 0;width:235px;background:#fff;border-right:1px solid var(--line);padding:22px 14px;z-index:5}.logo{font-size:25px;font-weight:950;margin:5px 12px 28px}.logo span{color:var(--g)}nav button{width:100%;border:0;background:transparent;padding:13px;border-radius:12px;text-align:left;font-weight:800;color:#617068;margin:3px 0;cursor:pointer}nav button.active,nav button:hover{background:var(--p);color:var(--gd)}.main{margin-left:235px;padding:26px;max-width:1500px}.page{display:none}.page.active{display:block}.top,.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:30px;margin:4px 0}.sub,.label{color:var(--muted)}.label{font-size:12px;font-weight:850;letter-spacing:.07em}.grid{display:grid;gap:15px}.stats{grid-template-columns:repeat(4,1fr)}.two{grid-template-columns:1.15fr .85fr;margin-top:15px}.three{grid-template-columns:repeat(3,1fr)}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 6px 25px #173d240b}.big{font-size:27px;font-weight:950;margin:6px 0}.progress{height:8px;background:#edf2ee;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:var(--g);border-radius:20px}.btn{border:0;border-radius:11px;padding:11px 15px;background:var(--g);color:#fff;font-weight:850;cursor:pointer}.btn.alt{background:var(--p);color:var(--gd)}.btn.red{background:#fff0f1;color:var(--red)}input,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:#fff;margin:5px 0 10px;font:inherit}.notice{background:var(--p);padding:12px;border-radius:12px;color:var(--gd);margin:10px 0}.food{border:1px solid var(--line);padding:13px;border-radius:13px;margin:8px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}.food small{display:block;color:var(--muted);margin-top:4px}.tag{display:inline-block;padding:5px 8px;border-radius:20px;background:#f0f4f1;color:#5c6c63;font-size:12px;margin:3px}.meal{border:1px solid var(--line);padding:13px;border-radius:13px;margin:8px 0;display:flex;justify-content:space-between}.ring{width:140px;height:140px;border-radius:50%;background:conic-gradient(var(--g) var(--pct),#e8efea 0);display:grid;place-items:center;margin:12px auto}.ring:after{content:"";position:absolute;width:104px;height:104px;border-radius:50%;background:#fff}.ring b{z-index:1;font-size:23px}.water{display:flex;gap:6px;flex-wrap:wrap}.drop{border:1px solid #cfe8d7;background:#fff;border-radius:50%;width:35px;height:35px;cursor:pointer}.drop.on{background:var(--g);color:#fff}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.quick button{padding:13px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer}.searchbar{display:flex;gap:8px}.searchbar input{margin:0}.resultmeta{font-size:12px;color:var(--muted)}.photo{width:100%;max-height:360px;object-fit:cover;border-radius:14px;background:#111}.camera{background:#101411;border-radius:15px;overflow:hidden;min-height:260px;display:grid;place-items:center;position:relative}.camera video{width:100%;max-height:420px;object-fit:cover}.camera .hint{position:absolute;bottom:10px;left:10px;right:10px;text-align:center;color:#fff;background:#0009;padding:8px;border-radius:9px}.scanbuttons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.scanresult{background:var(--p);padding:14px;border-radius:13px;margin-top:12px}.chart{height:180px;display:flex;align-items:end;gap:10px}.barwrap{flex:1;text-align:center}.bar{height:var(--h);background:var(--g);border-radius:7px 7px 2px 2px}.modalbg{display:none;position:fixed;inset:0;background:#10201699;align-items:center;justify-content:center;padding:15px;z-index:20}.modal{background:#fff;padding:20px;border-radius:20px;width:min(650px,100%);max-height:92vh;overflow:auto}.toast{position:fixed;right:15px;bottom:15px;background:var(--ink);color:#fff;padding:12px 15px;border-radius:10px;display:none;z-index:30}.empty{text-align:center;padding:25px;color:var(--muted)}.herofood{display:flex;gap:12px;align-items:center}.thumb{width:60px;height:60px;border-radius:12px;object-fit:cover;background:#edf3ee}.country{font-size:12px;color:var(--gd);font-weight:750}.footer{color:#849189;font-size:11px;margin-top:25px;text-align:center}
@@ -33,12 +33,471 @@
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* ===== NutriTrack V6.1 ===== */
+:root{
+  --g:#2f9e62;--gd:#176b40;--p:#e9f8ef;--bg:#f4f8f5;--ink:#142019;
+  --muted:#718078;--line:#dce9e1;--card:#fff;--gold:#e6ad3e;
+}
+body.dark{
+  --bg:#101714;--ink:#edf7f0;--muted:#9caea4;--line:#26362e;--card:#17221d;--p:#193a29;
+}
+body.dark .side,body.dark input,body.dark select,body.dark .modal,
+body.dark .quick button,body.dark .drop{background:#17221d;color:var(--ink)}
+body.dark .progress{background:#26342d}
+body.dark .food,body.dark .meal{border-color:var(--line)}
+body.dark .hero,body.dark .smart{background:linear-gradient(135deg,#183c2a,#14241d)!important}
+body.dark .notice{background:#193a29}
+body.dark .btn.alt{color:#8fe0ae}
+.v6hero{
+  background:linear-gradient(135deg,#e7f8ed 0%,#f8fcf9 55%,#eef8f1 100%);
+  border:1px solid var(--line);border-radius:22px;padding:20px;margin:0 0 15px;
+}
+body.dark .v6hero{background:linear-gradient(135deg,#173a29,#17221d)}
+.v6hero h2{margin:4px 0 6px;font-size:25px}.v6hero p{margin:0;color:var(--muted)}
+.smartgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:15px;margin-top:15px}
+.smart{
+  border:1px solid var(--line);border-radius:18px;padding:18px;
+  background:linear-gradient(135deg,#fff,#f3faf5)
+}
+.nutrient-row{display:grid;grid-template-columns:80px 1fr 65px;gap:10px;align-items:center;margin:10px 0}
+.nutrient-row .progress{height:7px}
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.switchrow{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.switch{width:48px;height:27px;border:0;border-radius:20px;background:#d7e1db;cursor:pointer;position:relative}
+.switch:after{content:"";position:absolute;width:21px;height:21px;top:3px;left:3px;border-radius:50%;background:white;transition:.2s}
+.switch.on{background:var(--g)}.switch.on:after{left:24px}
+.v6nav{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.rankbar{height:10px;background:#e9efeb;border-radius:20px;overflow:hidden;margin:8px 0}
+.rankbar i{display:block;height:100%;background:linear-gradient(90deg,var(--g),#9ad8b1)}
+.feedback-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.feedback-tabs button{border:1px solid var(--line);background:var(--card);padding:9px 12px;border-radius:10px;font-weight:800;cursor:pointer;color:var(--ink)}
+.feedback-tabs button.on{background:var(--p);color:var(--gd)}
+@media(max-width:700px){.smartgrid,.settings-grid{grid-template-columns:1fr}}
+
+
+/* V6 dark-mode form/readability fix */
+body.dark label,
+body.dark h1, body.dark h2, body.dark h3, body.dark h4,
+body.dark b, body.dark strong, body.dark span, body.dark small,
+body.dark p, body.dark .label, body.dark .sub { color: var(--ink); }
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background:#111a16 !important;
+  color:#f1f8f4 !important;
+  border-color:#34483d !important;
+  caret-color:#8fe0ae;
+}
+body.dark input::placeholder,
+body.dark textarea::placeholder { color:#91a39a !important; }
+
+body.dark option {
+  background:#17221d;
+  color:#f1f8f4;
+}
+
+body.dark .card,
+body.dark .modal,
+body.dark .food,
+body.dark .meal,
+body.dark .quick button {
+  color:var(--ink);
+}
+
+body.dark .card h3,
+body.dark .card .big,
+body.dark .card label,
+body.dark .card label b {
+  color:#f1f8f4;
+}
+
+body.dark .tag {
+  background:#26382f;
+  color:#b9e8ca;
+}
+
+body.dark .btn.alt {
+  background:#1d3a2a;
+  color:#a9e8be;
+}
+
+body.dark .notice {
+  color:#b9e8ca;
+}
+
+body.dark .side {
+  background:#121a16;
+  border-color:#2a3a32;
+}
+
+body.dark nav button { color:#aab9b1; }
+body.dark nav button.active,
+body.dark nav button:hover {
+  background:#193a29;
+  color:#a9e8be;
+}
+
+body.dark .modalbg { background:#050806cc; }
+body.dark .modal { box-shadow:0 20px 60px #0008; }
+
+
+/* ===== FINAL V6 DARK MODE FIX ===== */
+body.dark{
+  --card:#17221d !important;
+  --bg:#0d1511 !important;
+  --ink:#f2faf5 !important;
+  --muted:#a9b9b0 !important;
+  --line:#304139 !important;
+  --p:#193b2a !important;
+}
+
+/* Cards were staying white in dark mode, making the light text almost invisible. */
+body.dark .card,
+body.dark .v6hero,
+body.dark .smart,
+body.dark .food,
+body.dark .meal,
+body.dark .quick button,
+body.dark .modal,
+body.dark .ring:after{
+  background:#17221d !important;
+  color:#f2faf5 !important;
+  border-color:#304139 !important;
+}
+
+/* Make ALL normal text readable on dark cards. */
+body.dark .card *,
+body.dark .v6hero *,
+body.dark .smart *,
+body.dark .food *,
+body.dark .meal *{
+  color:inherit;
+}
+
+body.dark .card .sub,
+body.dark .card small,
+body.dark .card .label,
+body.dark .v6hero p,
+body.dark .smart small{
+  color:#a9b9b0 !important;
+}
+
+body.dark .card .big,
+body.dark .card h3,
+body.dark .card h2,
+body.dark .card b,
+body.dark .card label{
+  color:#f2faf5 !important;
+}
+
+/* Dashboard ring and progress areas */
+body.dark .progress,
+body.dark .rankbar{
+  background:#2b3932 !important;
+}
+body.dark .ring{
+  background:conic-gradient(var(--g) var(--pct),#2b3932 0) !important;
+}
+body.dark .ring:after{
+  background:#17221d !important;
+}
+
+/* Inputs, dropdowns and text areas */
+body.dark input,
+body.dark select,
+body.dark textarea{
+  background:#101814 !important;
+  color:#f2faf5 !important;
+  border-color:#3a4d42 !important;
+}
+body.dark input::placeholder,
+body.dark textarea::placeholder{
+  color:#8fa198 !important;
+}
+body.dark option{
+  background:#17221d !important;
+  color:#f2faf5 !important;
+}
+
+/* Water buttons */
+body.dark .drop{
+  background:#17221d !important;
+  border-color:#3a4d42 !important;
+}
+body.dark .drop.on{
+  background:#183d2b !important;
+}
+
+/* Buttons/tags */
+body.dark .btn.alt{
+  background:#1c412d !important;
+  color:#a9e8be !important;
+}
+body.dark .tag{
+  background:#263a30 !important;
+  color:#bfeacf !important;
+}
+
+/* Navigation */
+body.dark .side{
+  background:#121a16 !important;
+  border-color:#2b3b33 !important;
+}
+body.dark nav button{
+  color:#aebdb5 !important;
+}
+body.dark nav button.active,
+body.dark nav button:hover{
+  background:#193b2a !important;
+  color:#a9e8be !important;
+}
+
+
+/* ===== NutriTrack V6.1.1 — Dark Mode Contrast & Mobile Polish ===== */
+body.dark{
+  background:#080d0b !important;
+  color:#f3faf6 !important;
+}
+body.dark .page, body.dark main, body.dark .wrap{
+  color:#f3faf6;
+}
+body.dark .card,
+body.dark .smart,
+body.dark .v6hero,
+body.dark .modal,
+body.dark .food,
+body.dark .meal{
+  background:#121a16 !important;
+  color:#f3faf6 !important;
+  border-color:#2b3b33 !important;
+}
+body.dark h1, body.dark h2, body.dark h3, body.dark h4,
+body.dark p, body.dark b, body.dark strong,
+body.dark label, body.dark span, body.dark small,
+body.dark .title, body.dark .sub, body.dark .label{
+  color:#f3faf6 !important;
+}
+body.dark .sub, body.dark small{
+  color:#a9b9b0 !important;
+}
+body.dark input, body.dark select, body.dark textarea{
+  background:#0c1310 !important;
+  color:#f5fbf7 !important;
+  border:1px solid #34483d !important;
+}
+body.dark input::placeholder, body.dark textarea::placeholder{
+  color:#8fa198 !important;
+}
+body.dark .progress{background:#29372f !important}
+body.dark .progress i{background:#69d08b !important}
+body.dark .btn{
+  color:#082014 !important;
+  background:#75d797 !important;
+}
+body.dark .btn.alt{
+  color:#a9e9bb !important;
+  background:#183528 !important;
+}
+body.dark .tag{
+  color:#bceecb !important;
+  background:#1c3829 !important;
+}
+body.dark nav button{
+  color:#c0ccc6 !important;
+}
+body.dark nav button.active, body.dark nav button:hover{
+  color:#9aebb3 !important;
+  background:#183326 !important;
+}
+body.dark .herofood{
+  color:#f3faf6 !important;
+}
+body.dark .feedback-tabs button{
+  background:#121a16 !important;
+  color:#dbe8e0 !important;
+  border-color:#34483d !important;
+}
+body.dark .feedback-tabs button.on{
+  background:#193c2a !important;
+  color:#a8eab9 !important;
+}
+body.dark .switch{background:#334139 !important}
+body.dark .switch.on{background:#58c97b !important}
+body.dark .notice{
+  background:#18382a !important;
+  color:#bceecb !important;
+}
+@media(max-width:700px){
+  body.dark .v6hero h2{font-size:22px}
+  body.dark .card{border-radius:18px}
+  body.dark .title{font-size:28px}
+}
+
 </style>
 
 <style>
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@keyframes pop{0%{transform:scale(.94);opacity:0}70%{transform:scale(1.03)}100%{transform:scale(1);opacity:1}}@keyframes pulse{0%,100%{box-shadow:0 0 0 0 #35a96b33}50%{box-shadow:0 0 0 9px #35a96b00}}@keyframes waterDrop{0%{transform:scale(.7);opacity:.3}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes fill{from{width:0}}
 .page.active{animation:fadeUp .35s ease both}.card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}.card:hover{transform:translateY(-2px);box-shadow:0 12px 32px #173d2414}.btn{transition:transform .15s ease,box-shadow .15s ease}.btn:hover{transform:translateY(-1px);box-shadow:0 6px 15px #35a96b33}.btn:active{transform:scale(.96)}.progress i{animation:fill .8s ease}.ring{animation:pop .5s ease}.drop{transition:all .2s ease}.drop.on{animation:waterDrop .3s ease}.food,.meal{animation:fadeUp .3s ease both}.quick button{transition:transform .15s ease,background .15s ease}.quick button:hover{transform:translateY(-3px);background:var(--p)}.logo span{display:inline-block;animation:pulse 2.5s infinite}.modalbg{backdrop-filter:blur(5px)}.modal{animation:pop .25s ease}.toast{animation:fadeUp .25s ease}.chart .bar{transform-origin:bottom;animation:fill .65s ease both}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+<style>
+/* ===== V6.1 Mobile + Dark Dashboard ===== */
+body.dark{
+  background:#0b120f !important;
+  color:#eef7f1 !important;
+}
+body.dark .main{background:#0b120f}
+body.dark .side{
+  background:#101814 !important;
+  border-color:#26352e !important;
+}
+body.dark .card,
+body.dark .smart,
+body.dark .v6hero,
+body.dark .modal{
+  background:#151d19 !important;
+  color:#eef7f1 !important;
+  border-color:#2b3932 !important;
+}
+body.dark .card h1,body.dark .card h2,body.dark .card h3,
+body.dark .card b,body.dark .card strong,
+body.dark .card span,body.dark .card p,
+body.dark .card small,body.dark .card label,
+body.dark .title,body.dark .sub,body.dark .label{
+  color:#eef7f1 !important;
+}
+body.dark .sub,body.dark .label,body.dark small{
+  color:#a9b8b0 !important;
+}
+body.dark .big{
+  color:#8ee0a9 !important;
+}
+body.dark .progress{
+  background:#29352f !important;
+}
+body.dark .progress i{
+  background:#63d789 !important;
+}
+body.dark .ring{
+  background:conic-gradient(#63d789 var(--pct),#29352f 0) !important;
+}
+body.dark .ring:after{
+  background:#151d19 !important;
+}
+body.dark .meal,
+body.dark .food{
+  background:#121a16 !important;
+  border-color:#36443d !important;
+}
+body.dark .quick button,
+body.dark .drop{
+  background:#121a16 !important;
+  color:#eef7f1 !important;
+  border-color:#36443d !important;
+}
+body.dark input,
+body.dark select,
+body.dark textarea{
+  background:#0e1512 !important;
+  color:#f5faf7 !important;
+  border:1px solid #3b4d43 !important;
+}
+body.dark input::placeholder,
+body.dark textarea::placeholder{
+  color:#84958c !important;
+}
+body.dark .btn.alt{
+  background:#1b3c29 !important;
+  color:#9ae5b1 !important;
+}
+body.dark .notice{
+  background:#193525 !important;
+  color:#b9edc8 !important;
+}
+body.dark .tag{
+  background:#263a2f !important;
+  color:#b9e7c7 !important;
+}
+body.dark .v6hero{
+  background:linear-gradient(135deg,#163524,#151d19) !important;
+}
+body.dark .challenge-card.complete{
+  background:#183426 !important;
+}
+
+/* Phone navigation: replace the narrow left rail with a bottom navigation bar. */
+@media(max-width:560px){
+  body{overflow-x:hidden}
+  .side{
+    position:fixed !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    top:auto !important;
+    width:100% !important;
+    height:68px !important;
+    padding:5px 4px !important;
+    border-right:0 !important;
+    border-top:1px solid var(--line) !important;
+    z-index:50 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .logo{display:none !important}
+  nav{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:repeat(6,1fr) !important;
+    gap:2px !important;
+  }
+  nav button{
+    margin:0 !important;
+    padding:8px 2px !important;
+    border-radius:10px !important;
+    text-align:center !important;
+    font-size:10px !important;
+    line-height:1.15 !important;
+    color:#6f7d75 !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+  }
+  nav button:first-letter{font-size:18px !important}
+  nav button.active{
+    background:var(--p) !important;
+    color:var(--gd) !important;
+  }
+  .main{
+    margin-left:0 !important;
+    padding:14px !important;
+    padding-bottom:84px !important;
+    width:100% !important;
+  }
+  .stats{
+    grid-template-columns:1fr 1fr !important;
+    gap:12px !important;
+  }
+  .two{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+  .three{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .quick{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .title{font-size:23px !important}
+  .top{align-items:flex-start !important}
+  .top .btn{white-space:nowrap}
+  .card{padding:15px !important;border-radius:18px !important}
+  .big{font-size:24px !important}
+  .water{gap:7px !important}
+  .drop{width:38px !important;height:38px !important}
+  .smartgrid{grid-template-columns:1fr !important}
+}
 </style>
 </head>
 <body>
@@ -50,11 +509,12 @@
 <button onclick="go('progress',this)">📈 Progress</button>
 <button onclick="go('challenges',this)">🏆 Challenges</button>
 <button onclick="go('profile',this)">👤 Profile</button>
+<button onclick="go('settings',this)">⚙️ Settings</button>
 </nav></aside>
 <main class="main">
 
 <section id="dash" class="page active">
-<div class="top"><div><span class="label">TODAY</span><h1 class="title">Good afternoon 👋</h1><p class="sub">Track any food, from anywhere in the world.</p></div><button class="btn" onclick="openFood()">+ Log food</button></div>
+<div class="top"><div><span class="label">TODAY</span><h1 class="title" id="greeting">Good afternoon 👋</h1><p class="sub">Track any food, from anywhere in the world.</p></div><button class="btn" onclick="openFood()">+ Log food</button></div>
 <div class="grid stats">
 <div class="card"><span class="label">CALORIES</span><div class="big"><span id="cal">0</span> / <span id="goal">2100</span></div><div class="progress"><i id="calbar"></i></div><span class="label" id="remain">2100 kcal remaining</span></div>
 <div class="card"><span class="label">PROTEIN</span><div class="big"><span id="protein">0</span>g</div><div class="progress"><i id="pbar"></i></div></div>
@@ -79,7 +539,7 @@
 <div class="card"><h3>📸 Scan / Photo</h3><p class="sub">Use your camera to capture the meal, then confirm the closest food and portion.</p><button class="btn" style="width:100%" onclick="openScanner()">Open camera</button><label class="btn alt" style="display:block;text-align:center;margin-top:8px">🖼️ Choose food photo<input type="file" accept="image/*" capture="environment" style="display:none" onchange="loadStandalonePhoto(event)"></label><button class="btn alt" style="width:100%;margin-top:8px" onclick="barcodeScan()">▣ Scan barcode</button>
 <p class="resultmeta">Photo estimates are estimates—you confirm before logging.</p></div></div>
 <div class="card" style="margin-top:15px"><div class="row"><h3>Today's log</h3><span class="label" id="count"></span></div><div id="logs"></div></div>
-<div class="footer">NutriTrack V5 • Global nutrition tracking • Challenges • Camera • Barcode • Online product data powered by Open Food Facts</div>
+<div class="footer">NutriTrack V6.1.1 • Global nutrition tracking • Challenges • Camera • Barcode • Online product data powered by Open Food Facts</div>
 </section>
 
 <section id="planner" class="page"><div class="top"><div><span class="label">MEAL PLANNER</span><h1 class="title">Plan ahead</h1><p class="sub">Save meals from any cuisine.</p></div><button class="btn" onclick="mealModal.style.display='flex'">+ Save meal</button></div><div class="grid three"><div class="card"><h3>🌅 Breakfast</h3><p>Oats + banana + milk</p><b>445 kcal</b></div><div class="card"><h3>☀️ Lunch</h3><p>Chicken adobo + rice</p><b>~560 kcal</b></div><div class="card"><h3>🌙 Dinner</h3><p>Salmon + rice + vegetables</p><b>610 kcal</b></div></div><div class="card" style="margin-top:15px"><h3>Saved meals</h3><div id="saved"></div></div></section>
@@ -110,6 +570,68 @@
 </section>
 
 <section id="profile" class="page"><div class="top"><div><span class="label">GOALS</span><h1 class="title">Profile</h1><p class="sub">Set your targets once.</p></div></div><div class="card"><label>Name<input id="name"></label><label>Age<input id="age" type="number"></label><label>Height (cm)<input id="height" type="number"></label><label>Weight (kg)<input id="w" type="number"></label><label>Daily calorie goal<input id="g" type="number"></label><label>Protein goal (g)<input id="pg" type="number"></label><label>Weight goal (kg)<input id="wg" type="number"></label><button class="btn" onclick="saveProfile()">Save goals</button></div></section>
+
+<section id="settings" class="page">
+  <div class="top">
+    <div><span class="label">CONTROL CENTER</span><h1 class="title">⚙️ Settings</h1>
+    <p class="sub">Customize NutriTrack to fit you.</p></div>
+  </div>
+
+  <div class="grid two">
+    <div class="card">
+      <h3>⚙️ App preferences</h3>
+      <div class="switchrow">
+        <div><b>🌙 Dark mode</b><small class="sub" style="display:block">Switch between light and dark</small></div>
+        <button id="darkSwitch" class="switch" onclick="toggleDark()"></button>
+      </div>
+      <div class="switchrow">
+        <div><b>🔊 Sound effects</b><small class="sub" style="display:block">Achievement and action sounds</small></div>
+        <button id="soundSwitch" class="switch" onclick="toggleSound()"></button>
+      </div>
+      <div class="switchrow">
+        <div><b>💾 Persistent progress</b><small class="sub" style="display:block">Your progress stays saved on this device</small></div>
+        <span class="tag">ON</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🎯 Goals & dietary preferences</h3>
+      <label>Diet
+        <select id="diet"><option>Everything</option><option>Vegetarian</option><option>Vegan</option><option>High protein</option></select>
+      </label>
+      <label>Activity
+        <select id="activity"><option>Light</option><option>Moderate</option><option>Active</option></select>
+      </label>
+      <label>Foods to avoid
+        <input id="avoid" placeholder="e.g. peanuts, shellfish">
+      </label>
+      <button class="btn" onclick="savePreferences()">Save preferences</button>
+    </div>
+  </div>
+
+  <div class="grid two" style="margin-top:15px">
+    <div class="card">
+      <h3>💬 Feedback Center</h3>
+      <div class="feedback-tabs">
+        <button class="on" onclick="feedbackMode('feedback',this)">💬 Feedback</button>
+        <button onclick="feedbackMode('bug',this)">🐛 Bug report</button>
+        <button onclick="feedbackMode('feature',this)">💡 Feature idea</button>
+      </div>
+      <textarea id="feedbackText" rows="6" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:var(--card);color:var(--ink)" placeholder="Tell us what you think..."></textarea>
+      <button class="btn" style="margin-top:9px" onclick="submitFeedback()">Send feedback</button>
+    </div>
+
+    <div class="card">
+      <h3>🏆 Legend progression</h3>
+      <p class="sub">Earn NutriPoints from challenges and climb the ranks.</p>
+      <div class="big"><span id="v6Points">0</span> XP</div>
+      <div class="rankbar"><i id="rankFill"></i></div>
+      <b id="v6Rank">Beginner</b>
+      <p class="sub" id="rankText">Start earning NutriPoints.</p>
+    </div>
+  </div>
+</section>
+
 </main></div>
 
 <div class="modalbg" id="foodModal"><div class="modal"><div class="row"><h2>Add food</h2><button class="btn alt" onclick="closeFood()">×</button></div><div id="foodChoice"></div></div></div>
@@ -121,6 +643,13 @@
 <div class="toast" id="toast"></div>
 
 <script>
+
+/* ===== NutriTrack feedback delivery =====
+   Create a Formspree form, then replace the placeholder below with:
+   https://formspree.io/f/YOUR_FORM_ID
+*/
+const NUTRITRACK_FEEDBACK_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
 /* Built-in global fallback foods. Online search is used first for packaged foods and foods available in Open Food Facts. */
 const foods=[
 ["Banana",89,1.1,.3,23,"Fruit"],["Apple",52,.3,.2,14,"Fruit"],["Mango",60,.8,.4,15,"Fruit"],["Avocado",160,2,14.7,8.5,"Fruit"],
@@ -159,8 +688,8 @@ let list=f?[f]:foods.slice(0,12);$("foodChoice").innerHTML=`<div class=searchbar
 $("foodModal").style.display="flex";window.localFoods=foods;localRender(f)
 }
 function localRender(force){let q=($("localSearch")?.value||"").toLowerCase(),a=force?[force]:foods.filter(x=>(x[0]+" "+x[5]).toLowerCase().includes(q));$("localList").innerHTML=a.slice(0,30).map((f,i)=>`<div class=food><div><b>${f[0]}</b><small>${f[5]} • ${f[1]} kcal • ${f[2]}g protein / 100g</small></div><button class="btn alt" onclick='portion(${JSON.stringify(f)})'>Add</button></div>`).join("")||"<div class=empty>No local match. Use Global Search.</div>"}
-function portion(f){$("foodChoice").innerHTML=`<h2>${f[0]}</h2><span class=tag>${f[5]}</span><p class=sub>${f[1]} kcal • ${f[2]}g protein • ${f[4]}g carbs • ${f[3]}g fat per 100g</p><label>Meal<select id=addMeal><option>Breakfast</option><option>Lunch</option><option>Snack</option><option>Dinner</option></select></label><label>Serving size (g)<input id=addServing type=number value="100" min="1" oninput="portionPreview()"></label><div class=notice id=portionPreview></div><button class=btn style="width:100%" onclick='addLocal(${JSON.stringify(f)})'>Add to today's log</button>`;portionPreview()}
-function portionPreview(){let f=window._portion;/* preview handled from global selected object */if(!document.getElementById("addServing"))return}
+function portion(f){selectedLocal=f;$("foodChoice").innerHTML=`<h2>${f[0]}</h2><span class=tag>${f[5]}</span><p class=sub>${f[1]} kcal • ${f[2]}g protein • ${f[4]}g carbs • ${f[3]}g fat per 100g</p><label>Meal<select id=addMeal><option>Breakfast</option><option>Lunch</option><option>Snack</option><option>Dinner</option></select></label><label>Serving size (g)<input id=addServing type=number value="100" min="1" oninput="portionPreview()"></label><div class=notice id=portionPreview></div><button class=btn style="width:100%" onclick='addLocal(${JSON.stringify(f)})'>Add to today's log</button>`;portionPreview()}
+function portionPreview(){let el=$("addServing"),box=$("portionPreview");if(!el||!box)return;let f=selectedLocal;if(!f)return;let q=(+el.value||1)/100;box.innerHTML=`<b>${Math.round(f[1]*q)} kcal</b> • ${(f[2]*q).toFixed(1)}g protein • ${(f[4]*q).toFixed(1)}g carbs • ${(f[3]*q).toFixed(1)}g fat`; }
 let selectedLocal=null;
 function addLocal(f){let q=(+$("addServing").value||1)/100;s.logs.push({name:f[0],meal:$("addMeal").value,serving:+$("addServing").value,cal:f[1]*q,pro:f[2]*q,car:f[4]*q,fat:f[3]*q});save();closeFood();toast("Added! Nutrition updated.");render()}
 function closeFood(){$("foodModal").style.display="none"}
@@ -193,6 +722,104 @@ function waterSet(v){s.water=v;save();render()}
 function saveMeal(){let n=$("mn").value.trim();if(!n)return;s.meals.push({n,c:+$("mc").value||0});save();mealModal.style.display="none";$("mn").value="";$("mc").value="";render();toast("Meal saved!")}
 function del(i){s.logs.splice(i,1);save();render()}
 function saveProfile(){s.p={name:$("name").value,age:+$("age").value,height:+$("height").value,w:+$("w").value,g:+$("g").value,pg:+$("pg").value,wg:+$("wg").value};save();render();toast("Goals saved!")}
+
+function renderSmart(){
+  let t=total(), p=s.p, rem=Math.max(0,p.g-t.cal), rp=Math.max(0,p.pg-t.pro);
+  let carbs=s.logs.reduce((a,x)=>a+(x.car||0),0), fat=s.logs.reduce((a,x)=>a+(x.fat||0),0);
+  let carbGoal=Math.round(p.g*.45/4), fatGoal=Math.round(p.g*.3/9);
+  let rows=[["Calories",Math.round(rem),"kcal",p.g],["Protein",Math.round(rp),"g",p.pg],["Carbs",Math.max(0,carbGoal-Math.round(carbs)),"g",carbGoal],["Fat",Math.max(0,fatGoal-Math.round(fat)),"g",fatGoal]];
+  $("remainingNutrients").innerHTML=rows.map(r=>`<div class="nutrient-row"><b>${r[0]}</b><div class="progress"><i style="width:${Math.min(100,Math.max(5,(r[1]/Math.max(1,r[3]))*100))}%"></i></div><span>${r[1]} ${r[2]}</span></div>`).join("");
+  let avoid=(s.settings.avoid||"").toLowerCase(), diet=s.settings.diet||"Everything";
+  let candidates=foods.filter(f=>{
+    let n=f[0].toLowerCase();
+    if(avoid&&avoid.split(",").some(x=>x.trim()&&n.includes(x.trim())))return false;
+    if(diet==="Vegetarian"&&/chicken|pork|beef|kebab|gyros|tacos|burrito|bulgogi|salmon|meat/i.test(n))return false;
+    if(diet==="Vegan"&&/chicken|pork|beef|egg|milk|cheese|yogurt|butter|kebab|gyros|meat/i.test(n))return false;
+    return f[1]<=Math.max(120,rem);
+  });
+  let pick=candidates.sort((a,b)=>b[2]-a[2])[0]||foods[0], portion=Math.min(250,Math.max(100,Math.round(rem/Math.max(1,pick[1])*100)));
+  $("smartMeal").innerHTML=`<div class="herofood"><div class="thumb" style="display:grid;place-items:center;font-size:30px">🍽️</div><div><b>${pick[0]}</b><small>${pick[5]} • ${Math.round(pick[1]*portion/100)} kcal • ${(pick[2]*portion/100).toFixed(0)}g protein</small></div></div><button class="btn" style="width:100%;margin-top:12px" onclick='portion(${JSON.stringify(pick)})'>Log this idea</button>`;
+  $("smartSummary").textContent=rem>0?`You have about ${Math.round(rem)} kcal and ${Math.round(rp)}g protein left today.`:"You've reached your calorie goal. Focus on hydration and balanced choices.";
+}
+function renderSettings(){
+  if(!$("darkSwitch"))return;
+  let q=s.settings||{};
+  $("darkSwitch").classList.toggle("on",!!q.dark);$("soundSwitch").classList.toggle("on",q.sound!==false);
+  document.body.classList.toggle("dark",!!q.dark);
+  if($("diet"))$("diet").value=q.diet||"Everything";if($("activity"))$("activity").value=q.activity||"Light";if($("avoid"))$("avoid").value=q.avoid||"";
+  if($("v6Points"))$("v6Points").textContent=s.points||0;
+  let ranks=[["Beginner",0],["Starter",100],["Consistent",250],["Dedicated",450],["Elite",700],["Champion",1000],["Legend",1500]];
+  let idx=ranks.reduce((i,r,j)=>(s.points>=r[1]?j:i),0),cur=ranks[idx],next=ranks[Math.min(idx+1,ranks.length-1)];
+  $("v6Rank").textContent=cur[0];
+  $("rankFill").style.width=(idx===ranks.length-1?100:Math.round((s.points-cur[1])/Math.max(1,next[1]-cur[1])*100))+"%";
+  $("rankText").textContent=idx===ranks.length-1?"MAX RANK • Legend achieved":`${Math.max(0,s.points-cur[1])} / ${next[1]-cur[1]} XP to ${next[0]}`;
+}
+function toggleDark(){s.settings.dark=!s.settings.dark;save();renderSettings()}
+function toggleSound(){s.settings.sound=s.settings.sound===false;save();renderSettings();toast(s.settings.sound?"🔊 Sound on":"🔇 Sound off")}
+function savePreferences(){s.settings.diet=$("diet").value;s.settings.activity=$("activity").value;s.settings.avoid=$("avoid").value;save();render();toast("🎯 Preferences saved!")}
+let feedbackType="feedback";
+function feedbackMode(type,b){
+  feedbackType=type;
+  document.querySelectorAll(".feedback-tabs button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on");
+  $("feedbackSubject").value=type==="bug"?"Bug report":type==="feature"?"Feature request":"Feedback";
+  $("feedbackText").placeholder=type==="bug"?"Describe the bug, what you expected, and what actually happened...":type==="feature"?"Describe the feature you'd love to see and why...":"Tell us what you think...";
+}
+function feedbackPayload(){
+  let text=$("feedbackText").value.trim();
+  let email=$("feedbackEmail").value.trim();
+  let subject=$("feedbackSubject").value.trim() || (feedbackType==="bug"?"Bug report":feedbackType==="feature"?"Feature request":"Feedback");
+  if(!text)return null;
+  return {
+    type:feedbackType,
+    subject,
+    message:text,
+    email,
+    app:"NutriTrack V6.1",
+    page:location.href,
+    submitted_at:new Date().toISOString()
+  };
+}
+async function submitFeedback(){
+  let payload=feedbackPayload();
+  if(!payload)return toast("Please write your message first.");
+  s.feedback=s.feedback||[];
+  s.feedback.push(payload);
+  save();
+
+  let status=$("feedbackStatus");
+  if(NUTRITRACK_FEEDBACK_ENDPOINT.includes("YOUR_FORM_ID")){
+    status.textContent="Saved on this device. Add your Formspree endpoint in the HTML to send it to you.";
+    $("feedbackText").value="";
+    toast("💾 Saved locally. Remote delivery still needs setup.");
+    return;
+  }
+
+  try{
+    status.textContent="Sending…";
+    let res=await fetch(NUTRITRACK_FEEDBACK_ENDPOINT,{
+      method:"POST",
+      headers:{"Accept":"application/json","Content-Type":"application/json"},
+      body:JSON.stringify(payload)
+    });
+    if(!res.ok)throw new Error("Submission failed");
+    status.textContent="✅ Sent successfully. Thank you!";
+    $("feedbackText").value="";
+    $("feedbackSubject").value="";
+    toast("💚 Report sent!");
+  }catch(err){
+    status.textContent="⚠️ Could not reach the feedback service. Your report is still saved on this device.";
+    toast("Saved locally — remote service unavailable.");
+  }
+}
+async function copyFeedback(){
+  let payload=feedbackPayload();
+  if(!payload)return toast("Please write your message first.");
+  let text=`NutriTrack ${payload.type.toUpperCase()}\nSubject: ${payload.subject}\nEmail: ${payload.email||"Not provided"}\n\n${payload.message}`;
+  try{await navigator.clipboard.writeText(text);toast("📋 Report copied!")}
+  catch(e){toast("Copy isn't available on this browser.")}
+}
+
 function toast(x){$("toast").textContent=x;$("toast").style.display="block";$("toast").classList.remove("show");void $("toast").offsetWidth;$("toast").classList.add("show");setTimeout(()=>$("toast").style.display="none",2300)}
 
 const challengeCatalog=[
@@ -206,6 +833,8 @@ const challengeCatalog=[
 s.challenges=s.challenges||{};
 s.points=s.points||0;
 s.badges=s.badges||[];
+s.settings=s.settings||{dark:false,sound:true,diet:"Everything",activity:"Light",avoid:""};s.feedback=s.feedback||[];
+s.feedback=s.feedback||[];
 
 function challengeProgress(c){
   let v=s.challenges[c.id]?.progress||0;
@@ -255,6 +884,7 @@ function startChallenge(id){
   save();renderChallenges();
 }
 
+let hour=new Date().getHours();$("greeting").textContent=(hour<12?"Good morning":hour<18?"Good afternoon":"Good evening")+" "+(s.p.name? s.p.name+" 👋":"👋");
 $("name").value=s.p.name;$("age").value=s.p.age;$("height").value=s.p.height;$("w").value=s.p.w;$("g").value=s.p.g;$("pg").value=s.p.pg;$("wg").value=s.p.wg;render();
 </script>
 </body></html>
