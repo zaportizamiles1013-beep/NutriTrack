@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NutriTrack — Track your nutrition. Reach your goals.</title>
+<style>
+:root{--green:#39a96b;--green2:#e9f8ef;--dark:#17221b;--muted:#718078;--bg:#f7faf8;--white:#fff;--line:#e5ece7;--danger:#e96b6b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--dark)}
+button,input,select{font:inherit}button{cursor:pointer;border:0}.app{min-height:100vh;display:flex}
+.sidebar{width:245px;background:#fff;border-right:1px solid var(--line);padding:24px 16px;position:fixed;top:0;bottom:0;left:0;z-index:10}
+.logo{font-size:24px;font-weight:800;margin:0 12px 34px}.logo span{color:var(--green)}
+.nav button{display:block;width:100%;text-align:left;padding:13px 14px;margin:5px 0;border-radius:12px;background:transparent;color:#5e6b63;font-weight:600}.nav button.active,.nav button:hover{background:var(--green2);color:var(--green)}
+.main{margin-left:245px;width:calc(100% - 245px);padding:28px 34px 60px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.eyebrow{color:var(--green);font-weight:700;font-size:13px}.title{font-size:30px;margin:4px 0}.subtitle{color:var(--muted);margin:0}.avatar{width:42px;height:42px;border-radius:50%;background:var(--green2);color:var(--green);display:grid;place-items:center;font-weight:800}
+.page{display:none}.page.active{display:block}.grid{display:grid;gap:18px}.stats{grid-template-columns:repeat(4,1fr)}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 4px 18px rgba(30,70,45,.035)}.label{font-size:13px;color:var(--muted)}.big{font-size:27px;font-weight:800;margin:7px 0}.green{color:var(--green)}
+.progress{height:9px;background:#edf2ef;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:var(--green);border-radius:20px}.two{grid-template-columns:1.2fr .8fr;margin-top:18px}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.section-title h3{margin:0}.link{background:none;color:var(--green);font-weight:700}.ring{width:145px;height:145px;border-radius:50%;background:conic-gradient(var(--green) 0 67%,#eaf0ec 67%);display:grid;place-items:center;margin:8px auto 15px}.ring:after{content:"";width:108px;height:108px;background:#fff;border-radius:50%;position:absolute}.ring span{position:relative;z-index:1;font-size:24px;font-weight:800}.center{text-align:center}.macro{margin:13px 0}.macro-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:7px}.meals{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.meal{border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;justify-content:space-between}.meal small{display:block;color:var(--muted);margin-top:4px}.add{background:var(--green);color:#fff;border-radius:10px;padding:10px 15px;font-weight:700}.danger{color:var(--danger);background:none}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:13px 8px;border-bottom:1px solid var(--line);font-size:14px}.search{display:flex;gap:10px;margin-bottom:18px}.search input,.form input,.form select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;outline:none}.form{display:grid;gap:12px}.form label{font-size:13px;font-weight:700}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.chart{height:190px;display:flex;align-items:end;gap:12px;padding:15px 5px}.bar{flex:1;background:var(--green2);border-radius:8px 8px 2px 2px;position:relative;min-height:12px}.bar:before{content:"";position:absolute;inset:auto 0 0;background:var(--green);height:var(--h);border-radius:8px 8px 2px 2px}.hero{padding:42px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.hero h1{font-size:52px;line-height:1.05;margin:8px 0 15px}.hero p{font-size:17px;color:var(--muted);line-height:1.7}.features{grid-template-columns:repeat(5,1fr);margin-top:18px}.feature{min-height:130px}.icon{font-size:25px;margin-bottom:12px}.feature h4{margin:0 0 7px}.feature p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}.hero-art{background:linear-gradient(145deg,#eaf9ef,#fff);border-radius:25px;padding:22px}.mini{background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px;margin:10px}.toast{position:fixed;right:20px;bottom:20px;background:var(--dark);color:#fff;padding:13px 17px;border-radius:10px;display:none;z-index:30}
+@media(max-width:900px){.sidebar{width:72px;padding:18px 9px}.logo{font-size:0;margin:0 0 25px;text-align:center}.logo span{font-size:22px}.nav button{font-size:0;text-align:center}.nav button::first-letter{font-size:20px}.main{margin-left:72px;width:calc(100% - 72px);padding:22px}.stats,.features{grid-template-columns:repeat(2,1fr)}.two,.hero{grid-template-columns:1fr}.hero h1{font-size:40px}}
+@media(max-width:600px){.main{padding:16px}.stats,.meals,.form-grid,.features{grid-template-columns:1fr}.top{align-items:flex-start}.title{font-size:24px}.hero{padding:25px}.hero h1{font-size:35px}.card{padding:16px}.sidebar{width:60px}.main{margin-left:60px;width:calc(100% - 60px)}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo">Nutri<span>Track</span></div>
+  <nav class="nav">
+    <button class="active" onclick="showPage('dashboard',this)">🏠 Dashboard</button>
+    <button onclick="showPage('food',this)">🥗 Food</button>
+    <button onclick="showPage('planner',this)">🍽️ Meal Planner</button>
+    <button onclick="showPage('progress',this)">📈 Progress</button>
+    <button onclick="showPage('profile',this)">👤 Profile</button>
+  </nav>
+</aside>
+
+<main class="main">
+<section id="dashboard" class="page active">
+  <div class="top"><div><div class="eyebrow">SUNDAY, AUGUST 16</div><h1 class="title">Good afternoon 👋</h1><p class="subtitle">Here's your nutrition snapshot for today.</p></div><div class="avatar">M</div></div>
+  <div class="grid stats">
+    <div class="card"><span class="label">Calories consumed</span><div class="big">1,342 <small class="label">/ 2,100 kcal</small></div><div class="progress"><i style="width:64%"></i></div></div>
+    <div class="card"><span class="label">Calories remaining</span><div class="big green">758 kcal</div><span class="label">You’re on track today</span></div>
+    <div class="card"><span class="label">Water</span><div class="big">1.6 L</div><div class="progress"><i style="width:67%"></i></div></div>
+    <div class="card"><span class="label">Current weight</span><div class="big">68.4 kg</div><span class="label">↓ 0.6 kg this month</span></div>
+  </div>
+  <div class="grid two">
+    <div class="card">
+      <div class="section-title"><h3>Today's meals</h3><button class="link" onclick="showPage('food')">View food →</button></div>
+      <div class="meals">
+        <div class="meal"><div>🌅 <b>Breakfast</b><small>Oatmeal & banana</small></div><b>380 kcal</b></div>
+        <div class="meal"><div>☀️ <b>Lunch</b><small>Chicken rice bowl</small></div><b>560 kcal</b></div>
+        <div class="meal"><div>🌤️ <b>Snack</b><small>Greek yogurt</small></div><b>140 kcal</b></div>
+        <div class="meal"><div>🌙 <b>Dinner</b><small>Not logged</small></div><button class="add" onclick="openFood()">+ Add</button></div>
+      </div>
+    </div>
+    <div class="card center"><div class="section-title"><h3>Daily calories</h3></div><div class="ring"><span>64%</span></div><b>1,342 / 2,100 kcal</b><p class="subtitle">758 calories remaining</p></div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <div class="section-title"><h3>Macros</h3><span class="label">Daily targets</span></div>
+    <div class="macro"><div class="macro-row"><span>Protein</span><b>86g / 130g</b></div><div class="progress"><i style="width:66%"></i></div></div>
+    <div class="macro"><div class="macro-row"><span>Carbohydrates</span><b>145g / 230g</b></div><div class="progress"><i style="width:63%"></i></div></div>
+    <div class="macro"><div class="macro-row"><span>Fat</span><b>42g / 70g</b></div><div class="progress"><i style="width:60%"></i></div></div>
+  </div>
+</section>
+
+<section id="food" class="page">
+  <div class="top"><div><div class="eyebrow">FOOD TRACKER</div><h1 class="title">Log your food</h1><p class="subtitle">Keep your nutrition data accurate and up to date.</p></div><button class="add" onclick="openFood()">+ Add food</button></div>
+  <div class="card">
+    <div class="search"><input id="foodSearch" placeholder="Search foods (e.g. chicken breast, rice, apple)" oninput="filterFoods()"></div>
+    <table class="table"><thead><tr><th>Food</th><th>Meal</th><th>Calories</th><th>Protein</th><th></th></tr></thead><tbody id="foodRows"></tbody></table>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>Add a food</h3><div class="form-grid form">
+    <label>Food name<input id="newFood" placeholder="e.g. Grilled chicken"></label>
+    <label>Meal<select id="newMeal"><option>Breakfast</option><option>Lunch</option><option>Snack</option><option>Dinner</option></select></label>
+    <label>Calories<input id="newCal" type="number" placeholder="250"></label>
+    <label>Protein (g)<input id="newProtein" type="number" placeholder="25"></label>
+  </div><button class="add" style="margin-top:14px" onclick="addFood()">Save food</button></div>
+</section>
+
+<section id="planner" class="page">
+  <div class="top"><div><div class="eyebrow">MEAL PLANNER</div><h1 class="title">Plan your meals</h1><p class="subtitle">Build a simple plan for the week.</p></div></div>
+  <div class="grid features" style="grid-template-columns:repeat(3,1fr)">
+    <div class="card"><div class="icon">🌅</div><h4>Breakfast</h4><p>Greek yogurt, berries & oats</p><b>320 kcal</b></div>
+    <div class="card"><div class="icon">☀️</div><h4>Lunch</h4><p>Grilled chicken rice bowl</p><b>560 kcal</b></div>
+    <div class="card"><div class="icon">🌙</div><h4>Dinner</h4><p>Salmon, vegetables & rice</p><b>610 kcal</b></div>
+  </div>
+</section>
+
+<section id="progress" class="page">
+  <div class="top"><div><div class="eyebrow">YOUR JOURNEY</div><h1 class="title">Progress</h1><p class="subtitle">See how your habits are changing over time.</p></div></div>
+  <div class="grid stats">
+    <div class="card"><span class="label">Weight change</span><div class="big green">−0.6 kg</div><span class="label">This month</span></div>
+    <div class="card"><span class="label">Average calories</span><div class="big">1,987</div><span class="label">kcal / day</span></div>
+    <div class="card"><span class="label">Water average</span><div class="big">2.1 L</div><span class="label">Last 7 days</span></div>
+    <div class="card"><span class="label">Goal progress</span><div class="big green">72%</div><span class="label">Monthly target</span></div>
+  </div>
+  <div class="card" style="margin-top:18px"><div class="section-title"><h3>Weekly calories</h3><span class="label">Last 7 days</span></div>
+    <div class="chart"><div class="bar" style="--h:72%"></div><div class="bar" style="--h:60%"></div><div class="bar" style="--h:82%"></div><div class="bar" style="--h:66%"></div><div class="bar" style="--h:75%"></div><div class="bar" style="--h:90%"></div><div class="bar" style="--h:64%"></div></div>
+  </div>
+</section>
+
+<section id="profile" class="page">
+  <div class="top"><div><div class="eyebrow">ACCOUNT</div><h1 class="title">Your profile</h1><p class="subtitle">Customize your nutrition goals.</p></div></div>
+  <div class="card form-grid form">
+    <label>Name<input id="profileName" value="Miles"></label>
+    <label>Age<input type="number" value="18"></label>
+    <label>Height (cm)<input type="number" value="164"></label>
+    <label>Weight (kg)<input type="number" value="68.4"></label>
+    <label>Activity level<select><option>Moderately active</option><option>Lightly active</option><option>Very active</option></select></label>
+    <label>Daily calorie goal<input type="number" value="2100"></label>
+    <label style="grid-column:1/-1">Nutrition goal<select><option>Maintain weight</option><option>Lose weight</option><option>Gain weight</option><option>Build muscle</option></select></label>
+  </div>
+  <button class="add" style="margin-top:16px" onclick="toast('Profile saved successfully!')">Save changes</button>
+</section>
+
+<section id="home" class="page">
+  <div class="card hero">
+    <div><div class="eyebrow">WELCOME TO NUTRITRACK</div><h1>Track your nutrition.<br><span class="green">Reach your goals.</span></h1><p>NutriTrack makes healthy habits easier by bringing your food, calories, macros, water, and progress together in one simple dashboard.</p><button class="add" onclick="showPage('dashboard')">Get Started →</button></div>
+    <div class="hero-art"><div class="mini"><span class="label">Today's progress</span><div class="big">1,342 kcal</div><div class="progress"><i style="width:64%"></i></div></div><div class="mini"><b>🥗 Balanced nutrition</b><p class="label">Protein 66% • Carbs 63% • Fat 60%</p></div></div>
+  </div>
+  <div class="grid features">
+    <div class="card feature"><div class="icon">🔥</div><h4>Calorie Tracking</h4><p>Know exactly how much you've eaten and what's left.</p></div>
+    <div class="card feature"><div class="icon">🥑</div><h4>Macro Tracking</h4><p>Keep protein, carbs, and fat balanced.</p></div>
+    <div class="card feature"><div class="icon">💧</div><h4>Water Tracking</h4><p>Stay hydrated with an easy daily target.</p></div>
+    <div class="card feature"><div class="icon">🍽️</div><h4>Meal Planning</h4><p>Plan meals ahead and stay consistent.</p></div>
+    <div class="card feature"><div class="icon">📈</div><h4>Progress Tracking</h4><p>See trends and celebrate your progress.</p></div>
+  </div>
+</section>
+</main></div>
+<div id="toast" class="toast"></div>
+<script>
+let foods=[
+{name:"Oatmeal & banana",meal:"Breakfast",cal:380,protein:12},
+{name:"Chicken rice bowl",meal:"Lunch",cal:560,protein:42},
+{name:"Greek yogurt",meal:"Snack",cal:140,protein:14}
+];
+function showPage(id,btn){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderFoods(list=foods){
+ document.getElementById('foodRows').innerHTML=list.map((f,i)=>`<tr><td><b>${f.name}</b></td><td>${f.meal}</td><td>${f.cal} kcal</td><td>${f.protein}g</td><td><button class="danger" onclick="deleteFood(${i})">Delete</button></td></tr>`).join('');
+}
+function filterFoods(){let q=document.getElementById('foodSearch').value.toLowerCase();renderFoods(foods.filter(f=>f.name.toLowerCase().includes(q)||f.meal.toLowerCase().includes(q)))}
+function addFood(){
+ let name=document.getElementById('newFood').value.trim(),cal=+document.getElementById('newCal').value||0,protein=+document.getElementById('newProtein').value||0,meal=document.getElementById('newMeal').value;
+ if(!name||!cal){toast('Please enter a food name and calories.');return}
+ foods.push({name,meal,cal,protein});renderFoods();toast('Food added successfully!');
+ document.getElementById('newFood').value='';document.getElementById('newCal').value='';document.getElementById('newProtein').value='';
+}
+function deleteFood(i){foods.splice(i,1);renderFoods();toast('Food removed.')}
+function openFood(){showPage('food');}
+function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
+renderFoods();
+</script>
+</body>
+</html>
